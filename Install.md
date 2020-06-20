@@ -148,4 +148,16 @@ sudo systemctl start filebeat.service
 sudo systemctl status filebeat.service
 
 
-# Install Uptime Heartbeat
+# Install Heartbeat
+sudo apt-get update && sudo apt-get install heartbeat-elastic
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable heartbeat-elastic.service
+sudo systemctl start heartbeat-elastic.service
+sudo systemctl status heartbeat-elastic.service
+
+# Install MetricBeat
+sudo apt-get update && sudo apt-get install metricbeat
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable metricbeat.service
+sudo systemctl start metricbeat.service
+sudo systemctl status metricbeat.service
