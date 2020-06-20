@@ -125,5 +125,16 @@ check the url : http://<ip>
 
 ```
 # Install Logstash
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+sudo apt-get install apt-transport-https
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt-get update && sudo apt-get install logstash
+
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable logstash.service
+sudo systemctl start logstash.service
+sudo systemctl status logstash.service
+
 # Install FileBeats
 
+# Install Uptime Heartbeat
