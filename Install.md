@@ -135,6 +135,9 @@ sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable logstash.service
 sudo systemctl start logstash.service
 sudo systemctl status logstash.service
+
+touch /etc/logstash/conf.d/elk-demo.conf // copy the file 
+
 ```
 # Install FileBeats
 ```
@@ -146,6 +149,13 @@ sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable filebeat.service
 sudo systemctl start filebeat.service
 sudo systemctl status filebeat.service
+
+vi /etc/filebeat/filebeat.yml 
+-----------------------------
+# Paths that should be crawled and fetched. Glob based paths.
+  paths:
+    - /var/log/elk/*.log
+-----------------------------
 ```
 
 # Install Heartbeat
