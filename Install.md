@@ -84,16 +84,46 @@ sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable kibana.service
 sudo systemctl start kibana.service
 
+/etc/kibana/kibana.yml
+---------------------------
+server.host: "localhost"
+---------------------------
 netstat -tnlp | grep 5601
 -----------------------------
 tcp        0      0 127.0.0.1:5601          0.0.0.0:*               LISTEN      23723/node
 -----------------------------
 
 ```
+# Install Nginx and Apache2-utils:
+```
+sudo apt-get install nginx apache2-utils -y
+sudo htpasswd -c /etc/nginx/htpasswd.users kibanaadmin
+sudo vi /etc/nginx/sites-available/default
+-------------------------------------
+server {
+    listen 80;
 
+    server_name example.com;
 
+    auth_basic "Restricted Access";
+    auth_basic_user_file /etc/nginx/htpasswd.users;
 
-# Install nginx
+    location / {
+        proxy_pass http://localhost:5601;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;        
+    }
+}
+-------------------------------------
+
+sudo service nginx restart
+
+check the url : http://<ip>
+
+```
 # Install Logstash
 # Install FileBeats
 
