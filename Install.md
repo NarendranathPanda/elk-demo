@@ -52,10 +52,44 @@ tcp6       0      0 127.0.0.1:9200          :::*                    LISTEN      
 -----------------------------
 
 curl -X GET "localhost:9200/?pretty"
+output:
+
+{
+  "name" : "ubuntu-elk",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "INK-VT0kRBGy2pxvAAWwwYUg",
+  "version" : {
+    "number" : "7.8.0",
+    "build_flavor" : "default",
+    "build_type" : "deb",
+    "build_hash" : "75731464395644ea9a1dc2fecd26d1a43856725e65",
+    "build_date" : "2020-06-14T19:35:50.234439Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.5.1",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+}
+
 
 ```
 # Install Kibana 
+```
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+sudo apt-get install apt-transport-https
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt-get update && sudo apt-get install kibana
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable kibana.service
+sudo systemctl start kibana.service
 
+netstat -tnlp | grep 5601
+-----------------------------
+tcp        0      0 127.0.0.1:5601          0.0.0.0:*               LISTEN      23723/node
+-----------------------------
+
+```
 
 
 
