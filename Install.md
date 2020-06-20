@@ -72,9 +72,9 @@ output:
   "tagline" : "You Know, for Search"
 }
 
-
 ```
 # Install Kibana 
+
 ```
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 sudo apt-get install apt-transport-https
@@ -125,7 +125,7 @@ check the url : http://<ip>
 
 ```
 # Install Logstash
-
+```
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 sudo apt-get install apt-transport-https
 echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
@@ -135,9 +135,9 @@ sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable logstash.service
 sudo systemctl start logstash.service
 sudo systemctl status logstash.service
-
+```
 # Install FileBeats
-
+```
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 sudo apt-get install apt-transport-https
 echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
@@ -146,18 +146,21 @@ sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable filebeat.service
 sudo systemctl start filebeat.service
 sudo systemctl status filebeat.service
-
+```
 
 # Install Heartbeat
+```
 sudo apt-get update && sudo apt-get install heartbeat-elastic
 sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable heartbeat-elastic.service
 sudo systemctl start heartbeat-elastic.service
 sudo systemctl status heartbeat-elastic.service
-
+```
 # Install MetricBeat
+```
 sudo apt-get update && sudo apt-get install metricbeat
 sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable metricbeat.service
 sudo systemctl start metricbeat.service
 sudo systemctl status metricbeat.service
+```
