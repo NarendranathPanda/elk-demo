@@ -6,7 +6,7 @@ ref: https://www.digitalocean.com/community/tutorials/how-to-install-elasticsear
 - [Troubleshooting](/Troubleshooting.md)
 
 Access the kibana 
-http://<ip>/
+http://<Host-ip-Address>/
 
 
 - ref : https://www.javainuse.com/elasticsearch/filebeat-elk
