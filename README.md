@@ -1,7 +1,6 @@
 # Install ELK + Filebeats + SpringBoots 
 Prerequisite: 
 - [ElasticSearch Version compatibility](https://www.elastic.co/support/matrix)
-- 
 ![ref: https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elk-stack-on-ubuntu-14-04](https://assets.digitalocean.com/articles/elk/elk-infrastructure.png)
 - [Installation](/Install.md) 
 - [Troubleshooting](/Troubleshooting.md)
