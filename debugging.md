@@ -13,9 +13,12 @@ journalctl -u logstash.service -f
  curl -v http://localhost:9200/_cat/indices
 ```
 
-#Configure the index at kibana 
+# Configure the index at kibana 
 ```
 http://<localhost:5601>/app/kibana#/management/elasticsearch/index_management/indices
 ```
-
+# If you want to run production grade elastic 
+```
+https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+```
 
